@@ -1,16 +1,17 @@
 import './App.css';
+import './styles/layout.css';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
 import Main from './Components/Main';
-import Nav from './Components/Nav';
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <Nav/>
-      <Main/>
-      <Footer/>
+    <div className="App">    
+      <div className="grid-layout">
+        <Header className="header"/>
+        <Main className="main" />
+        <Footer className="footer" />
+      </div>
     </div>
   );
 }

@@ -1,0 +1,136 @@
+.specials {
+  padding: 2rem 1rem 4rem;
+  background-color: #fff;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.specials-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -3rem;
+}
+
+.specials-header h2 {
+  font-size: 3rem;
+}
+
+.btn-yellow {
+  background-color: #F4CE14;
+  color: black;
+  font-weight: bold;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.specials-cards {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.special-card {
+  flex: 1;
+  min-width: 280px;
+  max-width: 320px;
+  background-color: #eee;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.special-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title-price {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: .5rem;
+}
+
+.card-title-price h3,
+.card-title-price .price {
+  margin: 0;
+  padding: 0;
+}
+
+.price {
+  color: #EE9972;
+  font-size: 1.2rem;
+}
+
+.order {
+  margin-top: auto;
+  font-weight: 600;
+  
+}
+
+@media (max-width: 767px) {
+  .specials-section {
+    padding: 1rem;
+  }
+
+  .specials-title {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .card {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .card-title-price {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-price {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+}

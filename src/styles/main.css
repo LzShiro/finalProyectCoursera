@@ -1,0 +1,16 @@
+.main {
+  display: grid;
+  grid-template-rows: 30% 70%;
+  grid-template-areas:
+    "hero"
+    "specials";
+  height: 100%;
+}
+
+.hero {
+  grid-area: hero;
+}
+
+.specials {
+  grid-area: specials;
+}

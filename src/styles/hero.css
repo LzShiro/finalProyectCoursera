@@ -1,0 +1,143 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #495E57;
+  position: relative;
+  overflow: visible;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 700px;
+}
+
+.hero-text {
+  flex: 2;
+}
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #F4CE14;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.hero-text p:first-of-type {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: white;
+  margin: 0;
+  
+}
+
+.hero-text p:last-of-type {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: white;
+  max-width: 250px;  
+}
+
+.hero-text button {
+  background-color: #F4CE14;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #000;
+  transition: background-color 0.3s ease;
+}
+
+.hero-text button:hover {
+  background-color: #e5bc12;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image img {
+  height: auto;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .hero-image {
+    position: relative;
+    flex: unset;
+    width: 72%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    overflow: visible;
+  }
+
+  .hero-image img {
+    height: auto;
+    width: 230px;
+    object-fit: cover;
+    border-radius: 1rem;
+    transform: translateY(3rem); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2)
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    background-color: #495E57;
+    padding: 1rem;
+    color: white;
+    text-align: left;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+    color: #F4CE14;
+    margin: 0;
+  }
+
+  .hero-text h2 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 1rem 0;
+  }
+
+  .hero-button {
+    background-color: #F4CE14;
+    color: black;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border-radius: 0.75rem;
+    width: fit-content;
+  }
+
+  .hero-image {
+    display: none;
+  }
+}
