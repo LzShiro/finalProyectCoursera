@@ -31,6 +31,7 @@
   gap: 2rem;
   flex-wrap: wrap;
   justify-content: center;
+  
 }
 
 .special-card {
@@ -42,6 +43,9 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  color: inherit;
 }
 
 .special-card img {

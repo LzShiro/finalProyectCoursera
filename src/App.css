@@ -8,6 +8,11 @@ html, body, #root, .App {
 @import './styles/header.css';
 @import './styles/footer.css';
 @import './styles/main.css';
-@import "./styles/hero.css";
-@import "./styles/specials.css";
+@import './styles/hero.css';
+@import './styles/specials.css';
 
+@import './styles/login.css';
+@import './styles/about.css';
+@import './styles/dishDetail.css';
+@import './styles/orderOnline.css';
+@import './styles/reservations.css';

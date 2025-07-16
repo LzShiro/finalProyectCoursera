@@ -27,6 +27,7 @@
   color: #F4CE14;
   margin: 0;
   line-height: 1.1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .hero-text p:first-of-type {
@@ -90,7 +91,7 @@
     object-fit: cover;
     border-radius: 1rem;
     transform: translateY(3rem); 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2)
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   }
 }
 

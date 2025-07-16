@@ -1,0 +1,80 @@
+.dish-detail {
+  font-family: 'Karla', sans-serif;
+  min-height: 100%;
+  padding-bottom: 4rem;
+}
+
+.dish-hero {
+  background-color: #495E57;
+  padding: 4rem 2rem 2rem;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.dish-hero h1 {
+  font-size: 2.5rem;
+  color: #F4CE14;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.dish-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-top: -2rem;
+  text-align: center;
+}
+
+.dish-container img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.dish-container p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.dish-container .price {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #495E57;
+}
+
+.dish-detail button {
+  background-color: #F4CE14;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #000;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 2rem auto 0;
+}
+
+.dish-detail button:hover {
+  background-color: #e5bc12;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
