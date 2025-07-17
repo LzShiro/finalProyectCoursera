@@ -18,7 +18,7 @@ const Main = () => {
               traditional recipes served with a modern twist
             </p>
             <button
-              onClick={() => navigate("/reservations")}
+              onClick={() => navigate("/booking")}
               className="hero-button"
               aria-label="Reserve a table"
             >
