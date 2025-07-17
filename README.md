@@ -25,7 +25,7 @@ A front-end web application developed as the final project for the **Meta Front-
 
 ---
 
-## ⚙️ Installation Instructions
+## Installation Instructions
 
 1. Clone the repository:
    ```bash
