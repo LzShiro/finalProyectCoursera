@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 const BookingForm = ({
   onConfirm,
   resDate,
@@ -28,12 +29,22 @@ const BookingForm = ({
     setGuest(e.target.value);
   };
 
+  useEffect(() => {
+    if (availableTimes.length > 0 && resTime === "") {
+      setResTime(availableTimes[0]);
+    }
+  }, [availableTimes, resTime, setResTime]);
+
   return (
     <>
       <h2 className="reservations-title">Make a reservation</h2>
-      <div className="zone-selection">
-        <div className="zone-card selected">
-          <img src="/menuImages/Terrace.png" alt="Terrace" />
+      <section className="zone-selection" aria-label="Zone selection">
+        <article
+          className={`zone-card ${
+            selectedZone === "Terrace" ? "selected" : ""
+          }`}
+        >
+          <img src="/menuImages/Terrace.png" alt="Terrace seating area" />
           <div className="zone-label">
             <span>Terrace</span>
             <motion.button
@@ -44,14 +55,17 @@ const BookingForm = ({
                 e.preventDefault();
                 setSelectedZone("Terrace");
               }}
+              aria-label="Select Terrace seating"
             >
               Choose
             </motion.button>
           </div>
-        </div>
+        </article>
 
-        <div className="zone-card">
-          <img src="/menuImages/Indoor.png" alt="Interior" />
+        <article
+          className={`zone-card ${selectedZone === "Indoor" ? "selected" : ""}`}
+        >
+          <img src="/menuImages/Indoor.png" alt="Indoor seating area" />
           <div className="zone-label">
             <span>Indoor</span>
             <motion.button
@@ -62,65 +76,87 @@ const BookingForm = ({
                 e.preventDefault();
                 setSelectedZone("Indoor");
               }}
+              aria-label="Select Indoor seating"
             >
               Choose
             </motion.button>
           </div>
-        </div>
-      </div>
+        </article>
+      </section>
 
-      <form className="reservation-form">
-        <div className="form-group">
-          <label>
-            <i className="icon-calendar" /> Select a date
-          </label>
-          <input type="date" value={resDate} onChange={handleDateChange} />
-        </div>
-
-        <div className="form-group">
-          <label>
-            <i className="icon-clock" /> Select a time
-          </label>
-          <select
-            type="time"
-            className="select"
-            value={resTime}
-            onChange={handleTimeChange}
-          >
-            {availableTimes.map((time) => (
-              <option key={time} value={time}>
-                {time}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="form-group">
-          <label>
-            <i className="icon-users" /> How many guests?
-          </label>
-          <input
-            type="number"
-            min="1"
-            max="20"
-            value={guests}
-            onChange={handleGuestChange}
-          />
-        </div>
-
-        <div className="form-group birthday-checkbox">
-          <label>
+      <form className="reservation-form" aria-label="Reservation form">
+        <fieldset>
+          <legend className="sr-only">Reservation details</legend>
+          <div className="form-group">
+            <label htmlFor="res-date">
+              <i className="icon-calendar" /> Select a date
+            </label>
             <input
-              type="checkbox"
-              id="birthday"
-              checked={isBirthday}
-              onChange={(e) => setIsBirthday(e.target.checked)}
+              id="res-date"
+              type="date"
+              value={resDate}
+              onChange={handleDateChange}
+              required
+              aria-required="true"
             />
-            Is it a birthday celebration?
-          </label>
-        </div>
+          </div>
 
-        <button onClick={onConfirm} type="button" className="btn-confirm">
+          <div className="form-group">
+            <label htmlFor="time-select">
+              <i className="icon-clock" /> Select a time
+            </label>
+            <select
+              id="time-select"
+              type="time"
+              className="select"
+              value={resTime}
+              onChange={handleTimeChange}
+              required
+              aria-required="true"
+            >
+              {availableTimes.map((time) => (
+                <option key={time} value={time}>
+                  {time}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="guest-count">
+              <i className="icon-users" /> How many guests?
+            </label>
+            <input
+              id="guest-count"
+              type="number"
+              min="1"
+              max="20"
+              value={guests}
+              onChange={handleGuestChange}
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <div className="form-group birthday-checkbox">
+            <label htmlFor="birthday">
+              <input
+                type="checkbox"
+                id="birthday"
+                checked={isBirthday}
+                onChange={(e) => setIsBirthday(e.target.checked)}
+                aria-label="Birthday celebration"
+              />
+              Is it a birthday celebration?
+            </label>
+          </div>
+        </fieldset>
+        <button
+          onClick={onConfirm}
+          type="button"
+          className="btn-confirm"
+          aria-label="Confirm reservation"
+        >
           Confirm selection
         </button>
       </form>

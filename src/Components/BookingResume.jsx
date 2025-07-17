@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useReservationAPI } from "../hooks/useBookingAPI";
-import { saveReservation } from "../data/bookingUtils";
+import { saveReservation, isFormValid } from "../data/bookingUtils";
 
 const BookingResume = ({
   onBack,
@@ -18,17 +18,30 @@ const BookingResume = ({
   const { submitReservation } = useReservationAPI();
   const navigate = useNavigate();
 
-  const handleConfirm = async () => {
-    const formData = {
+  const formData = useMemo(
+    () => ({
       date: resDate,
       time: resTime,
       guests: parseInt(guests),
-      selectedZone: selectedZone,
-      isBirthday: isBirthday,
+      selectedZone,
+      isBirthday,
       firstName,
       lastName,
       phone,
-    };
+    }),
+    [
+      resDate,
+      resTime,
+      guests,
+      selectedZone,
+      isBirthday,
+      firstName,
+      lastName,
+      phone,
+    ]
+  );
+
+  const handleConfirm = async () => {
     saveReservation(formData, submitReservation, () => setConfirmed(true));
   };
 
@@ -38,7 +51,10 @@ const BookingResume = ({
   };
 
   return (
-    <div className="reservation-summary animated">
+    <div
+      className="reservation-summary animated"
+      aria-label="Reservation Summary"
+    >
       <h3>RESERVATION SUMMARY</h3>
       <p>
         <strong>Selected zone:</strong> {selectedZone}
@@ -57,36 +73,81 @@ const BookingResume = ({
       </p>
 
       <h3>CONTACT INFORMATION</h3>
-      <input
-        type="text"
-        placeholder="Enter your first name"
-        value={firstName}
-        onChange={(e) => setFirstName(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Enter your last name"
-        value={lastName}
-        onChange={(e) => setLastName(e.target.value)}
-      />
-      <input
-        type="tel"
-        placeholder="Enter your phone number"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-      />
+      <form aria-label="Contact Form">
+        <div className="form-group">
+          <label htmlFor="first-name">First Name</label>
+          <input
+            id="first-name"
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+            aria-required="true"
+            placeholder="Enter your first name"
+          />
+        </div>
 
-      <button className="btn-final" onClick={handleConfirm}>
-        Complete reservation
-      </button>
-      <button className="btn-back" onClick={onBack}>
-        ← Back
-      </button>
+        <div className="form-group">
+          <label htmlFor="last-name">Last Name</label>
+          <input
+            id="last-name"
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+            aria-required="true"
+            placeholder="Enter your last name"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="phone">Phone Number</label>
+          <input
+            id="phone"
+            type="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            required
+            aria-required="true"
+            placeholder="Enter your phone number"
+            pattern="^[+]?[\d\s\-]{10,15}$"
+            aria-label="Enter your phone number starting with country code if needed"
+          />
+        </div>
+
+        <div className="form-actions">
+          <button
+            className="btn-back"
+            onClick={onBack}
+            aria-label="Go back to previous step"
+          >
+            ← Back
+          </button>
+          <button
+            className={isFormValid(formData) ? "btn-final" : "btn-disabled"}
+            onClick={handleConfirm}
+            disabled={!isFormValid(formData)}
+            title={
+              !isFormValid(formData)
+                ? "Please complete all required fields"
+                : ""
+            }
+            aria-label="Complete your reservation"
+          >
+            Complete reservation
+          </button>
+        </div>
+      </form>
       {confirmed && (
-        <div className="confirmation-modal">
-          <h2>Reservation Confirmed!</h2>
+        <div
+          className="confirmation-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="confirmation-title"
+        >
+          <h2 id="confirmation-title">Reservation Confirmed!</h2>
           <p>Thank you, {firstName} for booking with us. See you soon!</p>
-          <button className="btn-final" onClick={handleCloseModal}>
+          <button className="btn-final" onClick={handleCloseModal} aria-label="Return to home">
             Go to home
           </button>
         </div>

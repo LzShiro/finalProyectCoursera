@@ -10,19 +10,32 @@ const DishDetail = () => {
 
   return (
     <AnimatedPage>
-      <section className="dish-detail">
-        <div className="dish-hero">
-          <h1>{dish.title}</h1>
-        </div>
+  <main className="dish-detail" aria-labelledby="dish-title">
+    <article className="dish-hero">
+      <header>
+        <h1 id="dish-title">{dish.title}</h1>
+      </header>
+    </article>
 
-        <div className="dish-container">
-          <img src={dish.image} alt={dish.title} />
-          <p>{dish.description}</p>
-          <p className="price">Price: {dish.price}</p>
-        </div>
-        <button>Add to cart</button>
-      </section>
-    </AnimatedPage>
+    <section className="dish-container">
+      <img src={dish.image} alt={`Image of ${dish.title}`} />
+      <p>{dish.description}</p>
+      <p className="price">
+        <strong>Price:</strong> {dish.price}
+      </p>
+    </section>
+
+    <div className="form-actions">
+      <button
+        type="button"
+        className="btn-add"
+        aria-label={`Add ${dish.title} to cart`}
+      >
+        Add to cart
+      </button>
+    </div>
+  </main>
+</AnimatedPage>
   );
 };
 

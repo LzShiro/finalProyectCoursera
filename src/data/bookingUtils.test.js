@@ -1,4 +1,4 @@
-import {initializeTimes, updateTimes, saveReservation } from "./bookingUtils";
+import {initializeTimes, updateTimes, saveReservation, isFormValid } from "./bookingUtils";
 import * as api from "../api";
 
 describe("Booking utils", () => {
@@ -61,5 +61,41 @@ describe("saveReservation", () => {
     expect(localStorage.getItem("reservation")).toBe(JSON.stringify(formData));
     expect(mockSubmit).toHaveBeenCalled();
     expect(mockSuccess).not.toHaveBeenCalled();
+  });
+});
+
+describe("isFormValid", () => {
+  const validForm = {
+    firstName: "John",
+    lastName: "Doe",
+    phone: "+521231231231",
+    selectedZone: "Terrace",
+    date: "2025-07-20",
+    time: "18:00",
+    guests: 2,
+  };
+
+  test("returns true for valid form", () => {
+    expect(isFormValid(validForm)).toBe(true);
+  });
+
+  test("returns false if phone is invalid", () => {
+    const invalid = { ...validForm, phone: "abc" };
+    expect(isFormValid(invalid)).toBe(false);
+  });
+
+  test("returns false if guests is 0", () => {
+    const invalid = { ...validForm, guests: 0 };
+    expect(isFormValid(invalid)).toBe(false);
+  });
+
+  test("returns false if resTime is empty", () => {
+    const invalid = { ...validForm, time: "" };
+    expect(isFormValid(invalid)).toBe(false);
+  });
+
+  test("returns false if selectedZone is null", () => {
+    const invalid = { ...validForm, selectedZone: null };
+    expect(isFormValid(invalid)).toBe(false);
   });
 });

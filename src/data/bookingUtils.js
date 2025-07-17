@@ -19,3 +19,27 @@ export const saveReservation = (formData, submitFn, onSuccess) => {
     onSuccess();
   }
 };
+
+export const isFormValid = (formData) => {
+  const {
+    firstName,
+    lastName,
+    phone,
+    selectedZone,
+    date,
+    time,
+    guests,
+  } = formData;
+
+  const phoneRegex = /^(\+?\d{1,3})?\s?\d{10}$/;
+
+  return (
+    firstName.trim() !== "" &&
+    lastName.trim() !== "" &&
+    phoneRegex.test(phone.trim())  &&
+    selectedZone !== null &&
+    date !== "" &&
+    time !== "" &&
+    guests > 0
+  );
+};

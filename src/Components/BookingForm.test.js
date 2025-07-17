@@ -53,3 +53,37 @@ describe("BookingForm", () => {
   });
 
 });
+
+const mockProps = {
+  resDate: "",
+  setResDate: jest.fn(),
+  resTime: "",
+  setResTime: jest.fn(),
+  guests: 1,
+  setGuest: jest.fn(),
+  onConfirm: jest.fn(),
+  availableTimes: ["17:00", "18:00", "19:00"],
+};
+
+describe("BookingForm HTML5 validation", () => {
+  test("date input is required", () => {
+    render(<BookingForm {...mockProps} />);
+    const input = screen.getByLabelText(/Select a date/i);
+    expect(input).toHaveAttribute("required");
+  });
+
+  test("guests input has min attribute of 1", () => {
+    render(<BookingForm {...mockProps} />);
+    const input = screen.getByLabelText(/how many guests/i);
+    expect(input).toHaveAttribute("min", "1");
+    expect(input).toHaveAttribute("required");
+  });
+
+  test("time select has correct options", () => {
+    render(<BookingForm {...mockProps} />);
+    const options = screen.getAllByRole("option");
+    expect(options).toHaveLength(3);
+    expect(options[0]).toHaveTextContent("17:00");
+  });
+});
+

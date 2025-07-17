@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
-const Nav = ({ className = "", onNavigate }) => {
+const Nav = ({ className = "", onNavigate, navId = "main-navigation" }) => {
   return (
-    <nav className={className}>
+    <nav id={navId} className={className} aria-label="Main navigation">
       <ul>
         <li><Link to="/" onClick={onNavigate}>Home</Link></li>
         <li><Link to="/about" onClick={onNavigate}>About</Link></li>

@@ -19,22 +19,30 @@ const OrderOnline = () => {
 
   return (
     <AnimatedPage>
-      <section className="order-online">
-        <h2 className="order-title">Your Order</h2>
+      <section className="order-online" aria-labelledby="order-title">
+        <h2 id="order-title" className="order-title">
+          Your Order
+        </h2>
         <div className="order-container">
-          <div className="order-items">
+          <div className="order-items" aria-label="List of items in your cart">
             {cartItems.map((item) => (
-              <div className="order-card" key={item.id}>
+              <article className="order-card" key={item.id}>
                 <img src={item.image} alt={item.title} />
                 <div>
                   <h3>{item.title}</h3>
-                  <p>{item.price}</p>
-                  <p>Quantity: {item.quantity}</p>
+                  <p aria-label={`Price ${item.price}`}>{item.price}</p>
+                  <p aria-label={`Quantity ${item.quantity}`}>
+                    Quantity: {item.quantity}
+                  </p>
                 </div>
-              </div>
+              </article>
             ))}
             <div className="order-total">
-              <Link to="/menu" className="back-btn">
+              <Link
+                to="/menu"
+                className="back-btn"
+                aria-label="Go back to menu"
+              >
                 Back to menu
               </Link>
               <p>
@@ -42,30 +50,49 @@ const OrderOnline = () => {
               </p>
             </div>
           </div>
-          <form className="order-form">
-            <h3>Complete your information</h3>
-            <label>
-              Full Name
-              <input type="text" placeholder="John Doe" />
-            </label>
-            <label>
-              Delivery Address
-              <input type="text" placeholder="123 Main Street, Chicago" />
-            </label>
-            <label>
-              Phone Number
-              <input type="tel" placeholder="555-123-4567" />
-            </label>
-            <label>
-              Comments (optional)
-              <textarea placeholder="Any special instructions?" />
-            </label>
-            <button type="submit">Submit Order</button>
+          <form className="order-form" aria-labelledby="order-form-title">
+            <h3 id="order-form-title">Complete your information</h3>
+            <div className="form-group">
+              <label htmlFor="full-name">Full Name</label>
+              <input
+                id="full-name"
+                type="text"
+                placeholder="John Doe"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="delivery-address">Delivery Address</label>
+              <input
+                id="delivery-address"
+                type="text"
+                placeholder="123 Main Street, Chicago"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="phone-number">Phone Number</label>
+              <input
+                id="phone-number"
+                type="tel"
+                placeholder="555-123-4567"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="comments">Comments (optional)</label>
+              <textarea
+                id="comments"
+                placeholder="Any special instructions?"
+                aria-label="Optional comments"
+              />
+            </div>
+            <button type="submit" aria-label="Submit your order">Submit Order</button>
           </form>
         </div>
       </section>
     </AnimatedPage>
   );
-}
+};
 
 export default OrderOnline;
