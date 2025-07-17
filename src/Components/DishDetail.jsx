@@ -18,7 +18,7 @@ const DishDetail = () => {
     </article>
 
     <section className="dish-container">
-      <img src={dish.image} alt={`Image of ${dish.title}`} />
+      <img src={dish.image} alt={`${dish.title}`} />
       <p>{dish.description}</p>
       <p className="price">
         <strong>Price:</strong> {dish.price}
