@@ -21,7 +21,6 @@ const OrderOnline = () => {
     <AnimatedPage>
       <section className="order-online">
         <h2 className="order-title">Your Order</h2>
-
         <div className="order-container">
           <div className="order-items">
             {cartItems.map((item) => (
@@ -43,30 +42,24 @@ const OrderOnline = () => {
               </p>
             </div>
           </div>
-
           <form className="order-form">
             <h3>Complete your information</h3>
-
             <label>
               Full Name
               <input type="text" placeholder="John Doe" />
             </label>
-
             <label>
               Delivery Address
               <input type="text" placeholder="123 Main Street, Chicago" />
             </label>
-
             <label>
               Phone Number
               <input type="tel" placeholder="555-123-4567" />
             </label>
-
             <label>
               Comments (optional)
               <textarea placeholder="Any special instructions?" />
             </label>
-
             <button type="submit">Submit Order</button>
           </form>
         </div>

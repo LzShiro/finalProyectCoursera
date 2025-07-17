@@ -5,7 +5,7 @@ import Header from './Components/Header';
 import Home from './pages/Home';
 import About from './pages/About';
 import Menu from './pages/Menu';
-import Reservations from './pages/Reservations';
+import Booking from './pages/Booking';
 import OrderOnline from './pages/OrderOnline';
 import Login from './pages/Login';
 import DishDetail from './Components/DishDetail';
@@ -23,7 +23,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/menu" element={<Menu />} />
-              <Route path="/reservations" element={<Reservations />} />
+              <Route path="/booking" element={<Booking />} />
               <Route path="/order-online" element={<OrderOnline />} />
               <Route path="/menu/:id" element={<DishDetail />} />
               <Route path="/order-online/:id" element={<DishDetail />} />

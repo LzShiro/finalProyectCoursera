@@ -15,6 +15,7 @@
   margin-bottom: 2rem;
   color: #495E57;
   margin-top: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .zone-selection {
@@ -94,6 +95,13 @@ textarea {
   font-size: 1rem;
 }
 
+.select {
+  padding: 0.75rem;
+  font-size: 1rem ;
+  font-size: 1rem ;
+  border-radius: .5rem;
+}
+
 .birthday-checkbox {
   display: flex;
   align-items: center;
@@ -141,6 +149,19 @@ textarea {
   border: none;
   font-weight: bold;
   cursor: pointer;
+}
+
+.confirmation-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  text-align: center;
 }
 
 @keyframes fadeInSlide {

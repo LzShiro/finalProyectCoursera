@@ -7,7 +7,7 @@ const Nav = ({ className = "", onNavigate }) => {
         <li><Link to="/" onClick={onNavigate}>Home</Link></li>
         <li><Link to="/about" onClick={onNavigate}>About</Link></li>
         <li><Link to="/menu" onClick={onNavigate}>Menu</Link></li>
-        <li><Link to="/reservations" onClick={onNavigate}>Reservations</Link></li>
+        <li><Link to="/booking" onClick={onNavigate}>Reservations</Link></li>
         <li><Link to="/order-online" onClick={onNavigate}>Order Online</Link></li>
         <li><Link to="/login" onClick={onNavigate}>Login</Link></li>
       </ul>

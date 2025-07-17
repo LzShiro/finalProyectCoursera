@@ -14,6 +14,8 @@
 
 .specials-header h2 {
   font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  color: #495E57;
 }
 
 .btn-yellow {
