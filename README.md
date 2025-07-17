@@ -1,71 +1,67 @@
-# finalProyectCoursera
-# Getting Started with Create React App
+# Little Lemon Reservation App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A front-end web application developed as the final project for the **Meta Front-End Developer Certification**. This app allows users to book a table, browse the full menu, place online orders, and manage their experience at the fictional Mediterranean restaurant **Little Lemon**.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Table reservation with indoor or terrace zone selection
+- Validated and accessible contact form
+- Real-time reservation summary
+- Complete menu with dish details
+- Online order cart with form submission
+- Smooth navigation and responsive design
+- Accessibility best practices (semantic HTML, ARIA attributes)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- **React**
+- **React Router DOM**
+- **Framer Motion** (for animations)
+- Semantic HTML5 + ARIA for accessibility
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## ⚙️ Installation Instructions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/little-lemon-reservation.git
+   cd little-lemon-reservation
+2. Install dependencies:
+   ```bash
+   npm install
+3. Run the app locally:
+   ```bash
+   npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How to Use
+1. Visit the homepage (/)
 
-### `npm run eject`
+2. Click "Reserve a Table" or explore the full menu
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Fill out the form to make a reservation or order online
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Review and confirm the reservation/order
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Additional Notes
+• Accessibility enhancements include: aria-label, proper labels and roles, keyboard-friendly navigation
+• Animated transitions using framer-motion
+• Unit tests for key components (BookingForm.test.js, BookingResume.test.js)
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is for educational purposes and is licensed under the MIT License.
 
-### Code Splitting
+## Version
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+v1.0.0
